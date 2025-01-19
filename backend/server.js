@@ -143,36 +143,17 @@ app.post('/login', async (req, res) => {
   }
 });
 
-app.get('/login', async (req, res) => {
-  try {
-    const  { username, password } = req.body;
-
-    // Use findOne instead of findById
-    const profile = await Profile.findOne({ username: username });
-
-
-    if (!profile || !(await profile.camparePassword(password))) {
-      return res.status(401).json({ error: 'Invalid username or password' });
-    }
-
-    const payload = {
-      id: profile.id, // Use profile.id here
-    };
-
-    console.log(JSON.stringify(payload));
-
-    const token = generatetoken(payload);
-   
-
-    // Send only one response
-    res.status(200).json({ Response: profile, Token: token });
-   
-   
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ error: 'Internal server error' });
+app.get("/login",async(req,res)=>{
+  try{
+   const data = await Profile.find()
+   console.log("data fetched")
+   res.status(200).json(data)
   }
-});
+  catch(err){
+   console.log(err);
+   res.status(500).json({error: 'internal server error'});
+  }
+})
 
 
 app.post('/logout',async(res,req) =>{
