@@ -1,43 +1,51 @@
- import {useState} from "react";
- import { useNavigate } from "react-router-dom";
- import axios from "axios";
- function Login(){
-    const[username,setusername]=useState('');
-    const[password,setpassword]=useState('');
-    const navigate = useNavigate();
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-    const handleLogin = async () => {
-       try{
-        const response = await axios.post('http://localhost:8000/login', { username, password });
-        localStorage.setItem('token', response.data.token);
-        useNavigate('/Layout');
-       }catch(err){
-        alert('Login failed');
-       }
-    }
+function Login() {
+  const [Email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  return(
-   <>
-   <form onSubmit={handleLogin}>
-   <div className="h-100% w-100% flex flex-col justify-center items-center  ">
-      <div className="w-3/12 h-98 ml-10 mb-10  mt-10 rounded-2xl border-2 border-indigo-500 border-solid leading-10 font-sans text-center bg-orange-100">
-          <form action="" className="pb-12 rounded-2xl">
-            <h1 className="font-bold text-xl m-2 bg-orange-400 h-12 text-center rounded-2xl">LOG IN</h1>
-            <br />
-            <input type="text" name="username" placeholder="Username" value={username} onChange={(e)=> setusername(e.target.value)} class=" flex justify-center items-center ml-10 w-4/5 h-12 rounded-2xl border-2 border-black border-solid"></input>
-            <br />
-            <input type="password" name="password" placeholder="Password" value={password} onChange={(e)=> setpassword(e.target.value)} className=" flex justify-center items-center ml-10 w-4/5 h-12 rounded-2xl border-2 border-black border-solid"></input>
-            <br />
-            <button className="bg-sky-500/100  w-4/5 mt-10 rounded-2xl ">LOG IN</button> 
-            <a href="/signup"><p class="mt-2" >OR,SIGN UP</p></a>
-          </form>
-      </div>
-     
-   </div>
-   </form>
-   
+  const handleLogin = async (e) => {
+    e.preventDefault(); // ✅ Prevents page refresh
+    axios.post('http://localhost:8000/login',{Email,password})
+    .then(result=> {console.log(result)
+      toast.success("login successfully!", {
+         position: "top-right",
+         autoClose: 3000,
+         theme: "light",
+       });
+      navigate("/Layout");
+    })
+    .catch(err=>console.log(err));
+    
+  };
 
-   </>
+  return (
+    <>
+      <form onSubmit={handleLogin}>
+        <div className="h-screen flex flex-col justify-center items-center">
+          <div className="w-3/12 h-auto p-5 rounded-2xl border-2 border-indigo-500 bg-orange-100 text-center">
+            <h1 className="font-bold text-xl bg-orange-400 p-3 rounded-2xl">LOG IN</h1>
+            <input 
+              type="Email" name="Email" placeholder="Email" 
+              value={Email} onChange={(e) => setEmail(e.target.value)}
+              className="w-full p-2 mt-4 border-2 border-black rounded-2xl"
+            />
+            <input 
+              type="password" name="password" placeholder="Password" 
+              value={password} onChange={(e) => setPassword(e.target.value)}
+              className="w-full p-2 mt-4 border-2 border-black rounded-2xl"
+            />
+            <button type="submit" className="bg-sky-500 w-full p-3 mt-4 rounded-2xl text-white font-bold">LOG IN</button> 
+            <a href="/signup"><p className="mt-4 text-blue-500">OR, SIGN UP</p></a>
+          </div>
+        </div>
+      </form>
+    </>
   );
 }
 

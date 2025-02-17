@@ -27,6 +27,7 @@ import Login from "./Loginsignup/Login";
 import Signup from "./Loginsignup/Signup";
 import { useState } from "react";
 import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
 
 
 
@@ -48,7 +49,7 @@ function App() {
 
   return (
     <>
-     
+       
     <BrowserRouter>
     <Routes>
 
@@ -56,7 +57,8 @@ function App() {
         
     {/* <Route path="/" element={<Navigate to="/login" />} /> */}
     <Route>
-    <Route path="/" element={isLoggedIn ? <Navigate to="/Layout" /> : <Login />} />
+    <Route path="/" element={isLoggedIn ? <Navigate to="/Layout" /> : <Layout/>} />
+        <Route path="/login" element={<Login/>} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/Layout" element={isLoggedIn ? <Layout /> : <Navigate to="/" />} />
     </Route>

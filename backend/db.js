@@ -1,6 +1,6 @@
 const mongoose= require('mongoose');
 
-const mongoUrl= 'mongodb://localhost:27017/shoes-com'
+const mongoUrl=process.env.MONGO_URI
 
 mongoose.connect(mongoUrl, 
     //  { useNewUrlParser: true,

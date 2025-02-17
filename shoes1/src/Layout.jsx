@@ -11,10 +11,10 @@ function Layout(){
     return(
         <>
        
-        <div>
-        <Outlet/>
-        </div>
-
+       
+         <div>
+            <Header/>
+         </div>
         <div>
          < Shoes/>
         </div>

@@ -1,44 +1,48 @@
-import {useState} from "react";
- import { useNavigate } from "react-router-dom";
- import axios from "axios";
-function Signup(){
-    const[username,setusername]=useState('');
-    const[Email,setEmail]=useState('');
-    const[password,setpassword]=useState('');
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+function Signup() {
+    const [username, setUsername] = useState('');
+    const [Email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handlesignup= async ()=>{
-       try{
-          await axios.post('http://localhost:8000/signup',{username,Email,password})
-          alert('signup successful! please login')
-          useNavigate('/')
-       }catch(err){
-        alert('signup fail');
-       }
-    }
-    return(
-        <>
-        <form onSubmit={handlesignup}>
-        <div className="h-100% w-100% flex flex-col justify-center items-center  ">
-            <div className="w-3/12 h-98 ml-10 mb-10  mt-10 rounded-2xl border-2 border-indigo-500 border-solid leading-10 font-sans text-center bg-orange-100">
-               <form action="" className="pb-12 rounded-2xl">
-               <h1 className="  font-bold text-xl m-2 bg-orange-400 h-12 text-center rounded-2xl">SIGN UP</h1>
-               <br/>
-               <input type="text" name="username" placeholder="Username" value={username} onChange={(e)=>setusername(e.target.value)} class=" flex justify-center items-center ml-10 w-4/5 h-12 rounded-2xl border-2 border-black border-solid"></input>
-               <br />
-               <input type="email" name="Email" placeholder="Email" value={Email}  onChange={(e)=>setEmail(e.target.value)} class=" flex justify-center items-center ml-10 w-4/5 h-12 rounded-2xl border-2 border-black border-solid"></input>
-               <br />
-              <input type="password" name="password" placeholder="Password" value={password}  onChange={(e)=>setpassword(e.target.value)} className=" flex justify-center items-center ml-10 w-4/5 h-12 rounded-2xl border-2 border-black border-solid"></input>
-               <br />
-               <button class="bg-sky-500/100  w-4/5 mt-10 rounded-2xl " type="submit">SIGN UP</button>
-               </form>
-            </div>
+    const handleSignup =  (e) => {
+        e.preventDefault();
+       axios.post('http://localhost:8000/signup',{username,Email,password})
+       .then(result=> {console.log(result)
+         toast.success(" account created successfully!", {
+            position: "top-right",
+            autoClose: 3000,
+            theme: "light",
+          });
+         navigate('/login')
+       })
+       .catch(err=>console.log(err))
 
-         </div>
-        </form>
-         
-        </>
-    )
+    };
+
+    return (
+        <div>
+            
+            <form onSubmit={handleSignup}>
+               <div className="h-screen flex flex-col justify-center items-center">
+                  <div className="w-3/12 h-auto p-5 rounded-2xl border-2 border-indigo-500 bg-orange-100 text-center">
+                  <h1 className="font-bold text-xl bg-orange-400 p-3 rounded-2xl">SIGN IN</h1>
+                  <input type="text" placeholder="Username"   className="w-full p-2 mt-4 border-2 border-black rounded-2xl" value={username} onChange={(e) => setUsername(e.target.value)} />
+                   <input type="email" placeholder="Email" className="w-full p-2 mt-4 border-2 border-black rounded-2xl" value={Email} onChange={(e) => setEmail(e.target.value)} />
+                  <input type="password" placeholder="Password"  className="w-full p-2 mt-4 border-2 border-black rounded-2xl" value={password} onChange={(e) => setPassword(e.target.value)} />
+                  <button type="submit" className="bg-sky-500 w-full p-3 mt-4 rounded-2xl text-white font-bold">SIGN IN</button>
+                  </div>
+              
+               </div>
+               
+            </form>
+        </div>
+    );
 }
 
-export default Signup
+export default Signup;

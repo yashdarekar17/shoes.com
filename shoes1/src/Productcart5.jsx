@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux"
 import { Product } from "./Product";
 import { addtofiveCart } from "./Store/Cart";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Productcart5(props){
     const carts = useSelector(store => store.cart.items);
@@ -12,6 +14,11 @@ function Productcart5(props){
             productId:id,
             quality:1,
         }))
+        toast.success("Your cart has been added!", {
+            position: "top-center",
+            autoClose: 3000,
+            theme: "dark",
+          });
     }
     
 
