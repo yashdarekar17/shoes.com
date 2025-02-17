@@ -19,5 +19,8 @@
     "dev": "nodemon backend/index.js",
     "start": "node backend/index.js",
     "build": "npm install && npm install --prefix shoes1 && npm run build --prefix shoes1"
+  },
+  "devDependencies": {
+    "rollup": "^4.34.8"
   }
 }
