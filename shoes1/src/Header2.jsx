@@ -27,7 +27,7 @@ function Header2(){
                 <Link to="/Cart1">Add to card</Link>
               </li>
               <li className="hover:text-gray-500">
-                <a href="#">Your delivery</a>
+                <a href="/delivery">Your delivery</a>
               </li>
             </ul>
             <div>

@@ -10,34 +10,34 @@ export const Product2 =[
     {
         id:1,
         name:'Barricade Tennis Shoes White',
-        price:"MRP:7,195.00",
+        price:700195,
         image:Barricade13TennisShoesWhiteIG3114HM1
         
     },
     {
         id:2,
         name:'Cricup23MWhite',
-        price:"MRP:10.396.00",
+        price:100396,
         image:Cricup23MWhiteIV490000plpstandard
         
     },
     {
         id:3,
         name:'Smashic-Unisex-Sneakers',
-        price:"MRP:5,895.00",
+        price:50895,
         image:adieaseshoes
        
     },
     {
         id:4,
         name:'fuseo-m',
-        price:"MRP:4.496.00",
+        price:40496,
         image:fuseom
     },
     {
         id:5,
         name:'Softride-Premier-one8-Shoes',
-        price:"MRP:6.196.00",
+        price:60196,
         image:kaptirshoes
         
     },
@@ -45,19 +45,19 @@ export const Product2 =[
     {
         id:6,
         name:' literacer shoes(women)',
-        price:"MRP:7.196.00",
+        price:70196,
         image: literacershoesw
     },
     {
         id:7,
         name:'puremotion shoes',
-        price:"MRP:10.396.00",
+        price:100396,
         image:puremotionshoes
     },
     {
         id:8,
         name:'run-50s shoes',
-        price:"MRP:13.296.00",
+        price:130296,
         image:run50sshoes
     },
    

@@ -16,6 +16,19 @@ function Header() {
     carts.forEach(item =>  total += item.quantity );
     setTotalquantity(total);
   }, [carts])
+
+  // function modes(){
+  //   const mode =document.querySelector('.mode');
+  //   const currmode="light";
+  //  mode.addEventListener('click',()=>{
+  //   if(currmode==="light"){
+  //     currmode="dark";
+  //     document.querySelector("body").style.backgroundColor = "black";
+  //   }
+  //  })
+
+    
+  // }
   return (
     <>
       <div className=" h-3/5 relative mt-0">
@@ -49,11 +62,19 @@ function Header() {
                 <a href="#">Your delivery</a>
               </li>
             </ul>
-            <div>
-              <button className="bg-black hover:bg-slate-800 text-white font-bold py-2 px-4 rounded mt-6 mx-2.5 flex justify-center items-center ">
-                Get Started
-              </button>
+            <div className="flex flex-row">
+             <Link to="/login"><button className="bg-black hover:bg-slate-800 text-white font-bold py-2 px-4 rounded mt-6 mx-2 flex justify-center items-center ">
+                LOGIN
+              </button></Link> 
+              <Link to="/signup"><button className="bg-black hover:bg-slate-800 text-white font-bold py-2 px-4 rounded mt-6 mx-2.5 flex justify-center items-center ">
+                SIGNUP
+              </button></Link> 
+              {/* <Link to="#"><button onClick={modes}  className=" dark bg-black hover:bg-slate-800 text-white font-bold py-2 px-4 rounded mt-6 mx-2.5 flex justify-center items-center ">
+                Dark
+              </button></Link>  */}
+              
             </div>
+            
              </div>
             
           </div>

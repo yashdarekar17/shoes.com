@@ -10,13 +10,13 @@ export const Product1 =[
     {
         id:1,
         name:'Nike Air force',
-        price:"MRP:10,795.00",
+        price:100795,
         image:S2
     },
     {
         id:2,
         name:'Grey men shoes',
-        price:"MRP:9,000.00",
+        price:900269,
         image:Crocsimg
         
         
@@ -24,39 +24,39 @@ export const Product1 =[
     {
         id:3,
         name:'AIR JORDAN MID',
-        price:"MRP:12,895.00",
+        price:120895,
         image:AIRJORDANMID
         
     },
     {
         id:4,
         name:'NIKE BDUNK LOW PRO WOOQS',
-        price:"MRP:13.496.00",
+        price:130496,
         image: NIKESBDUNKLOWPROWOOQS
     },
     {
         id:5,
         name:'NIKE ZOO MXVAPORFL YNEXT',
-        price:"MRP:14.196.00",
+        price:140196,
         image:NIKEZOOMXVAPORFLYNEXT
     },
     
     {
         id:6,
         name:'PHANTOM GXII ACADEASE FGMG',
-        price:"MRP:11.196.00",
+        price:110196,
         image:PHANTOMGXIIACADEASEFGMG
     },
     {
         id:7,
         name:' WMNS AIR JORDAN LOW(women)',
-        price:"MRP:10.396.00",
+        price:100396,
         image:WMNSAIRJORDANLOWw
     },
     {
         id:8,
         name:'WMNS AIR JORDAN MID(women)',
-        price:"MRP:13.296.00",
+        price:130296,
         image: nike
     },
    

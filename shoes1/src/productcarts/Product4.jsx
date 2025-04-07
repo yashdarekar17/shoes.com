@@ -10,35 +10,35 @@ export const Product4 =[
     {
         id:1,
         name:'Nike Air force',
-        price:"MRP:3,795.00",
+        price:30795,
         image:CROCS5
         
     },
     {
         id:2,
         name:'deviate sports shoes',
-        price:"MRP:2,000.00",
+        price:20000,
         image: crocs5
         
     },
     {
         id:3,
         name:'Smashic-Unisex-Sneakers',
-        price:"MRP:2,895.00",
+        price:20895,
         image: crocs6
         
     },
     {
         id:4,
         name:'court shatter sneakars',
-        price:"MRP:3.496.00",
+        price:30496,
         image: crocs7
         
     },
     {
         id:5,
         name:'Softride-Premier-one8-Shoes',
-        price:"MRP:4.196.00",
+        price:40196,
         image:Crocsimg
         
     },
@@ -46,20 +46,20 @@ export const Product4 =[
     {
         id:6,
         name:'crocs green',
-        price:"MRP:1.196.00",
+        price:10196,
         image:crocskid2
         
     },
     {
         id:7,
         name:'Cricup23MWhite',
-        price:"MRP:4.396.00",
+        price:40396,
         image: crocskid1
     },
     {
         id:8,
         name:'Grey men shoes',
-        price:"MRP:3.296.00",
+        price:30296,
         image:crocs8
         
     },

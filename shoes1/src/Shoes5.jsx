@@ -1,6 +1,7 @@
 import Wnike from "./Wnike.png";
 import Mnike from "./Mnike.png";
 import Vnike from "./Vnike.png";
+import { Link } from "react-router-dom";
 function Shoes5() {
   return (
     <>
@@ -29,19 +30,23 @@ function Shoes5() {
       >
         
         <span className="">
-          <button className="bg-white hover:bg-slate-800 text-black font-sm py-2 px-4 rounded mt-2 mx-2.5  absolute top-3/4 left-9">
+          <Link to="/Addias" ><button className="bg-white hover:bg-slate-800 text-black font-sm py-2 px-4 rounded mt-2 mx-2.5  absolute top-3/4 left-9">
             SHOP NOW
-          </button>
+          </button></Link>
         </span>
         <span className=" ">
+          <Link to="/Nikeshoes">
           <button className="bg-white hover:bg-slate-800 text-black font-sm py-2 px-4 rounded mt-2 mx-2.5 absolute top-3/4 ">
             SHOP NOW
           </button>
+          </Link>
         </span>
         <span className="  ">
+          <Link to="/puma">
           <button className="bg-white hover:bg-slate-800 text-black font-sm py-2 px-4 rounded mt-2 mx-2.5 absolute right-5 top-3/4">
             SHOP NOW
           </button>
+          </Link>
         </span>
       </div>
 

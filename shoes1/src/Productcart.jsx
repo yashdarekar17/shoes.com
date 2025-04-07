@@ -4,6 +4,8 @@ import { addtocart } from "./Store/Cart";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import jorden from "./jorden.png";
+
 
 
 const ProductCart = ({ data }) => {
@@ -29,96 +31,82 @@ const ProductCart = ({ data }) => {
           theme: "dark",
         });
       };
+      // console.log("✅ Received order from backend:", order);
+      const amount = Math.round(price * 100);
+      const currency = "INR";
+      const receiptID="quer";
+      const PaymentHandler = async (e) => {
+        e.preventDefault();
+        console.log("💥 PaymentHandler clicked!");
       
-      
-    useEffect(() => {
-        const script = document.createElement("script");
-        script.src = "https://checkout.razorpay.com/v1/checkout.js";
-        script.async = true;
-        document.body.appendChild(script);
-    
-        return () => {
-          document.body.removeChild(script); // Cleanup on unmount
-        };
-      }, []);
-  
-      async function initiatePayment() {
         try {
-          console.log("Initiating Payment...");
-      
-          // Fetch Razorpay key from backend
-          const response = await fetch("/razorpay-key");
-          const { key } = await response.json();
-          console.log("Received Razorpay Key:", key);
-      
-          // Create an order in the backend
-          console.log("Creating order with amount:", price * 100);
-          const orderResponse = await fetch("http://localhost:8000/create-order", {
+          const response = await fetch("http://localhost:8000/create-order", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              amount: price * 100, // Convert ₹ to paise
-              currency: "INR",
-              receipt: `receipt#${id}`,
+              amount: amount,
+              currency: currency,
+              receipt: receiptID,
             }),
+            headers: {
+              "content-type": "application/json",
+            },
           });
-          
-          const order = await orderResponse.json();
-          console.log("Order response:", order);
-          
       
-          
-          // Razorpay options
-          const options = {
-            key: RAZORPAY_KEY_ID, // Use the key from API response
-            amount: order.amount, 
-            currency: order.currency,
-            name: "Shoes.com",
-            description: "Shoes.com collection",
-            image: image,
-            order_id: order.id, 
+          if (!response.ok) {
+            throw new Error("Failed to create order");
+          }
+      
+          const order = await response.json();
+          console.log("✅ Received order:", order);
+      
+          if (!order.id) {
+            throw new Error("Order ID missing from response");
+          }
+      
+          var options = {
+            key: "rzp_live_6LpDZfFVVBQ2RS",
+            amount: amount,
+            currency: currency,
+            name: "SHOES.COM",
+            description: "no.1 quality shoes",
+            image: jorden,
+            order_id: order.id, // ✅ Now safe
             handler: async function (response) {
-              console.log("Payment successful. Verifying...");
+              const body = { ...response };
       
-              const verificationResponse = await fetch("/verify-payment", {
+              const validateres = await fetch("http://localhost:8000/create-order/validate", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  razorpay_payment_id: response.razorpay_payment_id,
-                  razorpay_order_id: response.razorpay_order_id,
-                  razorpay_signature: response.razorpay_signature,
-                }),
+                body: JSON.stringify(body),
+                headers: {
+                  "content-type": "application/json",
+                },
               });
-      
-              const verificationResult = await verificationResponse.json();
-              console.log("Payment verification result:", verificationResult);
-      
-              if (verificationResult.status === "success") {
-                alert("Payment successful and verified!");
-              } else {
-                alert("Payment verification failed!");
-                console.error("Payment verification failed:", verificationResult);
-              }
+              const jsonres = await validateres.json();
+              console.log(jsonres);
             },
             prefill: {
-              name: "Your Name",
-              email: "youremail@example.com",
-              contact: "9999999999",
+              name: "Gaurav Kumar",
+              email: "gaurav.kumar@example.com",
+              contact: "9000090000",
+            },
+            notes: {
+              address: "Razorpay Corporate Office",
             },
             theme: {
-              color: "#F37254",
+              color: "#3399cc",
             },
           };
       
-          // Open Razorpay payment modal
-          const rzp1 = new Razorpay(options);
+          var rzp1 = new window.Razorpay(options);
           rzp1.open();
-        } catch (error) {
-          console.error("Error in payment initiation:", error);
-          alert("Something went wrong. Please try again.");
-        }
-      }
       
+        } catch (error) {
+          console.error("💥 Payment error:", error.message);
+          toast.error(error.message || "Something went wrong");
+        }
+      };
+      
+    
   
     return (
       <>
@@ -130,11 +118,11 @@ const ProductCart = ({ data }) => {
               className="w-80 rounded-xl hover:scale-110"
             />
             <h2 className="ml-2">{name}</h2>
-            <h2 className="ml-2">₹{price}</h2>
+            <h2 className="ml-2">MRP:₹{price}</h2>
             <div className="flex">
               <span>
                 <button
-                  onClick={initiatePayment} // Now handled inside React
+                  onClick={PaymentHandler} // Now handled inside React
                   className="bg-black hover:bg-slate-800 text-white font-sm py-2 px-4 rounded mt-2 mx-2.5 flex justify-center items-center mr-6"
                 >
                   BUY NOW

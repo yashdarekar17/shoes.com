@@ -10,7 +10,7 @@ import Header2 from "../Header2"
 function Brands(){
     return(
        <>
-        <Header2/>
+        
        <div id="Brands" className=" max-w-7xl m-auto mt-7 border-2 rounded-xl">
             <h2 className="text-center text-4xl font-bold py-0.5">Brands</h2>
             <ul className="flex justify-between">

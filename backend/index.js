@@ -1,13 +1,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const bcrypt= require("bcrypt")
+const bcrypt= require("bcryptjs")
 require("dotenv").config();
 const cors = require("cors");
 const db = require("./db");
 const path = require("path");
 const { jwtwebmiddleware, generatetoken } = require("./jwt");
 const Razorpay=require("razorpay");
+const crypto=require("crypto");
+
 //node -r dotenv/config index.js
 
 
@@ -29,39 +31,46 @@ app.get("*", (req, res) => {
   res.sendFile(path.resolve(_dirname, "shoes1", "dist", "index.html")); // Corrected path
 });
 
-const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID, // Your Razorpay Key ID
-  key_secret: process.env.RAZORPAY_KEY_SECRET, // Your Razorpay Key Secret
-});
 
-app.get('/razorpay-key', (req, res) => {
-  res.json({ key: process.env.RAZORPAY_KEY_ID });
-});
+
+
 
 // Create Razorpay order
 app.post("/create-order", async (req, res) => {
-  console.log("Create order request received", req.body);
-
-  try {
-    const { amount, currency, receipt } = req.body;
-
-    if (!amount || !currency || !receipt) {
-      return res.status(400).json({ error: "Missing required fields" });
-    }
-
-    const order = await razorpay.orders.create({
-      amount,
-      currency,
-      receipt,
-    });
-
-    console.log("Order created:", order);
-    res.json(order);
-  } catch (error) {
-    console.error("Error creating order:", error);
-    res.status(500).json({ error: "Failed to create order" });
+ try{
+  const razorpay = new Razorpay({
+    key_id: process.env.RAZORPAY_KEY_ID, // Your Razorpay Key ID
+    key_secret: process.env.RAZORPAY_KEY_SECRET, // Your Razorpay Key Secret
+  });
+  const option=req.body;
+  const order=await razorpay.orders.create(option);
+  if(!order){
+    return res.status(500).send("error");
   }
+
+  res.json(order);
+ }catch(err){
+  res.status(500).json(err);
+ }
+
+  
 });
+
+app.post("/create-order/validate",async(req,res)=>{
+const{razorpay_order_id,razorpay_payment_id,razorpay_signature}=req.body;
+const sha=crypto.createHmac("sha256",process.env.RAZORPAY_KEY_SECRET);
+sha.update(`${razorpay_order_id}|${razorpay_payment_id}`);
+const digest =sha.digest("hex");
+if(digest!== razorpay_signature){
+  return res.status(400).json({msg:"transtion is not leget!"});
+}
+
+res.json({
+  msg:"success",
+  orderId:razorpay_order_id,
+  paymentID:razorpay_payment_id,
+})
+})
 
 
 // Profile Schema
@@ -157,6 +166,7 @@ app.get("/users", async (req, res) => {
 // **Logout Route**
 app.post("/logout", (req, res) => {
   try {
+    // const data = await Profile.
     res.status(200).json({ message: "Logged out successfully" });
   } catch (err) {
     console.log("Logout Error:", err);
