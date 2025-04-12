@@ -28,7 +28,7 @@ import Login from "./Loginsignup/Login";
 import Signup from "./Loginsignup/Signup";
 import { useState } from "react";
 import { useEffect } from "react";
-import Detail1 from "./viewdetails/detail1";
+// import Detail1 from "./viewdetails/detail1";
 import { ToastContainer } from "react-toastify";
 import Header2 from "./Header2";
 
