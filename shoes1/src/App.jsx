@@ -66,7 +66,7 @@ function App() {
         <Route path="/Layout" element={isLoggedIn ? <Layout /> : <Navigate to="/" />} />
     </Route>
        
-       <Route path="/details1" element={<Detail1/>}/>
+{/*        <Route path="/details1" element={<Detail1/>}/> */}
   
      <Route path="/Layout" element={<Layout/>}>
      <Route index element={<Header/>}/>
