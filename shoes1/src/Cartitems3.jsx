@@ -36,7 +36,7 @@ function Cartitems3(props) {
         }
     };
 
-    const amount = Math.round(detail.price * 100);
+    const amount = Math.round(detail.price * quantity * 100);
       const currency = "INR";
       const receiptID="quer";
       const PaymentHandler = async (e) => {
