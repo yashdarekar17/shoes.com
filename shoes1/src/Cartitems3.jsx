@@ -115,7 +115,7 @@ function Cartitems3(props) {
             <div className="w-80 border-2 rounded-xl m-5 max-w-screen pb-1">
                 <img src={detail.image} alt={detail.name} className="w-96 rounded-xl hover:scale-110"/>
                 <h2 className="ml-2">{detail.name}</h2>
-                <h2 className="ml-2">{detail.price}</h2>
+                <h2 className="ml-2">{detail.price * quantity}</h2>
                 <div className="flex">
                     <button onClick={handleMinusQuantity} className="bg-black hover:bg-slate-800 text-white font-sm py-2 px-4 rounded mt-2 mx-2.5">-</button>
                     <span>{quantity}</span>
