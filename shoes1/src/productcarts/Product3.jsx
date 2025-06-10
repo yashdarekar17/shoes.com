@@ -10,33 +10,33 @@ export const Product3 =[
     {
         id:1,
         name:'Liberate NITRO Mens Running Shoes',
-        price:90795,
+        price:9795,
        image:LiberateNITROMensRunningShoes
     },
     {
         id:2,
         name:' PUMA farun Hyper wave Mens Sneakers',
-        price:100000,
+        price:10000,
         image: PUMAAlfarunHyperwaveMensSneakers
     },
     {
         id:3,
         name:'Smashic-Unisex-Sneakers',
-        price:120895,
+        price:12895,
         image:courtshattersneakars
         
     },
     {
         id:4,
         name:'court shatter sneakars',
-        price:110496,
+        price:11496,
         image:SmashicUnisexSneakers
         
     },
     {
         id:5,
         name:'Softride-Premier-one8-Shoes',
-        price:100196,
+        price:10196,
         image:SoftridePremierone8ResUnisexRunningShoes
       
     },
@@ -44,19 +44,19 @@ export const Product3 =[
     {
         id:6,
         name:'Softride Premier one 8ResUnisex RunningShoes2',
-        price:70196,
+        price:7196,
         image:SoftridePremierone8ResUnisexRunningShoes2
     },
     {
         id:7,
         name:'PUMA CourtShatter Low Unisex Sneakers',
-        price:100396,
+        price:10396,
         image:PUMACourtShatterLowUnisexSneakers
     },
     {
         id:8,
         name:'PUMA Quest blitz Mid Mens Running Shoes',
-        price:80296,
+        price:8296,
         image:PUMAQuestblitzMidMensRunningShoes
     },
    
