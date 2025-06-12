@@ -36,7 +36,7 @@ function Cartitems3(props) {
         }
     };
 
-    const amount = Math.round(detail.price * 100);
+    const amount = Math.round(detail.price * quantity * 100);
       const currency = "INR";
       const receiptID="quer";
       const PaymentHandler = async (e) => {
@@ -44,7 +44,7 @@ function Cartitems3(props) {
         console.log("💥 PaymentHandler clicked!");
       
         try {
-          const response = await fetch("http://localhost:8000/create-order", {
+          const response = await fetch("https://shoes-com-npq0.onrender.com/create-order", {
             method: "POST",
             body: JSON.stringify({
               amount: amount,
@@ -78,7 +78,7 @@ function Cartitems3(props) {
             handler: async function (response) {
               const body = { ...response };
       
-              const validateres = await fetch("http://localhost:8000/create-order/validate", {
+              const validateres = await fetch("https://shoes-com-npq0.onrender.com/create-order/validate", {
                 method: "POST",
                 body: JSON.stringify(body),
                 headers: {
@@ -115,7 +115,7 @@ function Cartitems3(props) {
             <div className="w-80 border-2 rounded-xl m-5 max-w-screen pb-1">
                 <img src={detail.image} alt={detail.name} className="w-96 rounded-xl hover:scale-110"/>
                 <h2 className="ml-2">{detail.name}</h2>
-                <h2 className="ml-2">{detail.price}</h2>
+                <h2 className="ml-2">{detail.price * quantity}</h2>
                 <div className="flex">
                     <button onClick={handleMinusQuantity} className="bg-black hover:bg-slate-800 text-white font-sm py-2 px-4 rounded mt-2 mx-2.5">-</button>
                     <span>{quantity}</span>

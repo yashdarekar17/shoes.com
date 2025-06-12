@@ -12,7 +12,7 @@ function Signup() {
 
     const handleSignup =  (e) => {
         e.preventDefault();
-       axios.post('http://localhost:8000/signup',{username,Email,password})
+       axios.post('https://shoes-com-npq0.onrender.com/signup',{username,Email,password})
        .then(result=> {console.log(result)
          toast.success(" account created successfully!", {
             position: "top-right",

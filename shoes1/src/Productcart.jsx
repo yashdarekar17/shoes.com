@@ -40,7 +40,7 @@ const ProductCart = ({ data }) => {
         console.log("💥 PaymentHandler clicked!");
       
         try {
-          const response = await fetch("http://localhost:8000/create-order", {
+          const response = await fetch("https://shoes-com-npq0.onrender.com/create-order", {
             method: "POST",
             body: JSON.stringify({
               amount: amount,
@@ -74,7 +74,7 @@ const ProductCart = ({ data }) => {
             handler: async function (response) {
               const body = { ...response };
       
-              const validateres = await fetch("http://localhost:8000/create-order/validate", {
+              const validateres = await fetch("https://shoes-com-npq0.onrender.com/create-order/validate", {
                 method: "POST",
                 body: JSON.stringify(body),
                 headers: {

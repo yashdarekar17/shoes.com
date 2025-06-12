@@ -10,50 +10,50 @@ export const Product =[
     {
         id:1,
         name:'Nike Air force',
-        price:100795,
+        price:10795,
         image: S1,
     },
     {
         id:2,
         name:'deviate sports shoes',
-        price:900265,
+        price:9265,
         image: deviate
     },
     {
         id:3,
         name:'Smashic-Unisex-Sneakers',
-        price:200895,
+        price:20895,
         image: SmashicUnisexSneakers,
     },
     {
         id:4,
         name:'court shatter sneakars',
-        price:300496,
+        price:30496,
         image: courtshattersneakars,
     },
     {
         id:5,
         name:'Softride-Premier-one8-Shoes',
-        price:400196,
+        price:40196,
         image: SoftridePremierone8ResUnisexRunningShoes,
     },
     
     {
         id:6,
         name:'Barricade_13_Tennis_Shoes_White',
-        price:700196,
+        price:70196,
         image:Barricade13TennisShoesWhiteIG3114HM1,
     },
     {
         id:7,
         name:'Cricup23MWhite',
-        price:100396,
+        price:10396,
         image:  Cricup23MWhiteIV490000plpstandard,
     },
     {
         id:8,
         name:'Grey men shoes',
-        price:300296,
+        price:30296,
         image: Crocsimg,
     },
    

@@ -16,7 +16,7 @@
     "react-toastify": "^11.0.3"
   },
   "scripts": {
-    "dev": "nodemon backend/index.js",
+    "dev": "node backend/index.js",
     "start": "node backend/index.js",
     "build": "npm install && npm install --prefix shoes1 && npm run build --prefix shoes1"
   },
