@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import Productcart from "../Productcart"
 import Nikep from "../Nikep.png"
 import Puma2 from "../Puma2.png"
-import ad from"./ad.png";
+import ad from"../ad.png";
 import crocs from "../Crocs.png"
 import { Product } from "../Product"
 import Footer from "../Footer"
