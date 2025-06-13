@@ -14,13 +14,13 @@ function Header() {
     setShowLogout((prev) => !prev);
   };
 
-  const logout = () => {
+  const logout = () => {              
     localStorage.setItem("isLoggedIn", "false");
     localStorage.removeItem("userEmail");
     setIsLoggedIn(false);
     setShowLogout(false);
     window.dispatchEvent(new Event("loginStatusChanged"));
-    navigate("/login");
+    navigate("/Layout");
   };
 
   useEffect(() => {
@@ -60,7 +60,7 @@ function Header() {
                 <Link to="/">Home</Link>
               </li>
               <li className="hover:text-gray-500">
-                <Link to="/Shopping">Shopping</Link>
+                <Link to="/shop">Shopping</Link>
               </li>
               <li className="hover:text-gray-500">
                 <Link to="/Brands">Brands</Link>
@@ -68,9 +68,9 @@ function Header() {
               <li className="hover:text-gray-500">
                 <Link to="/Cart1">Cart</Link>
               </li>
-              <li className="hover:text-gray-500">
+              {/* <li className="hover:text-gray-500">
                 <a href="#">Your Delivery</a>
-              </li>
+              </li> */}
             </ul>
 
             {/* Login/Profile */}
