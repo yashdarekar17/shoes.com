@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import Productcart from "../Productcart"
 import Nikep from "../Nikep.png"
 import Puma2 from "../Puma2.png"
-import Addidas from "../Addidas.png"
+import ad from"./ad.png";
 import crocs from "../Crocs.png"
 import { Product } from "../Product"
 import Footer from "../Footer"
@@ -15,7 +15,7 @@ function Brands(){
             <h2 className="text-center text-4xl font-bold py-0.5">Brands</h2>
             <ul className="flex justify-between">
                 <li className="w-20"><Link to="/Nikeshoes"><img src={Nikep} alt="" /></Link></li>
-                <li className="w-20"><Link to="/Addias"><img src={Addidas} alt="" /></Link></li>
+                <li className="w-20"><Link to="/Addias"><img src={ad} alt="" /></Link></li>
                 <li className="w-20"><Link to="/puma"><img src={Puma2} alt="" /></Link></li>
                 <li className="w-20"><Link to="/Crocs"><img src={crocs} alt="" /></Link></li>
             </ul>
