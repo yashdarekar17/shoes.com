@@ -85,16 +85,15 @@ function App() {
       <Shoes2/></div> }></Route>
    </Routes>
    <Routes>
-   <Routes>
    <Route path="/Cart1" element={<div>
     <Header2/>
     <Cart1/>
     </div>}></Route>
-    <Route path="/delivery" element={<div>
+    {/* <Route path="/delivery" element={<div>
     <Header2/>
     <Navbar1/>
     <Cart1/>
-    </div>}></Route>
+    </div>}></Route> */}
    </Routes>
    <Routes>
    <Route path="/Brands" element={<div><Header2/>
