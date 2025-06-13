@@ -80,12 +80,11 @@ function App() {
      
    </Routes>
    <Routes>
-   <Route path="/Shopping" element={<div>
-    <Header2/>
-    <Shopping/>
-    
-   </div>}></Route>
+    <Route path="/shop" element={<div>
+      <Header2/>
+      <Shoes2/></div> }></Route>
    </Routes>
+   <Routes>
    <Routes>
    <Route path="/Cart1" element={<div>
     <Header2/>
