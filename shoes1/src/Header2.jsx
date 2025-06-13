@@ -18,22 +18,22 @@ function Header2(){
                 <Link to="/">Home</Link>
               </li>
               <li className="hover:text-gray-500">
-                <Link to="/Shopping">Shopping</Link>
+                <Link to="/shop">Shopping</Link>
               </li>
               <li className="hover:text-gray-500">
                 <Link to="/Brands">Brands</Link>
               </li>
               <li className="hover:text-gray-500">
-                <Link to="/Cart1">Add to card</Link>
+                <Link to="/Cart1">Cart</Link>
               </li>
-              <li className="hover:text-gray-500">
+              {/* <li className="hover:text-gray-500">
                 <a href="/delivery">Your delivery</a>
-              </li>
+              </li> */}
             </ul>
             <div>
-              <button className="bg-black hover:bg-slate-800 text-white font-bold py-2 px-4 rounded mt-6 mx-2.5 flex justify-center items-center ">
-                Get Started
-              </button>
+              <Link to="/Layout"><button className="bg-black hover:bg-slate-800 text-white font-bold py-2 px-4 rounded mt-6 mx-2.5 flex justify-center items-center ">
+                Get started
+              </button></Link>
             </div>
              </div>
             
