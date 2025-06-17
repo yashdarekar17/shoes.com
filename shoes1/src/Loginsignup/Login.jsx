@@ -14,7 +14,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const result = await axios.post("http://localhost:8000/login", { Email, password });
+      const result = await axios.post("https://shoes-com-npq0.onrender.com/login", { Email, password });
 
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("userEmail", Email);
