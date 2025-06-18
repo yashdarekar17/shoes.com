@@ -23,7 +23,7 @@
 - React Router
 - Redux Toolkit
 - Axios
-- CSS Modules or styled-components
+- tailwind css
 
 ### 🔹 Backend (Assumed)
 - Node.js + Express.js
@@ -37,6 +37,5 @@
 1. **Clone the repository**
    ```bash
    git clone https://github.com/your-username/shoes.com.git
-   cd shoes1
    npm run build
    npm run dev
