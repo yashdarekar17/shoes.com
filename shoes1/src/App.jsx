@@ -82,7 +82,9 @@ function App() {
    <Routes>
     <Route path="/shop" element={<div>
       <Header2/>
-      <Shoes2/></div> }></Route>
+      <Shoes2/>
+      <Footer/>
+    </div> }></Route>
    </Routes>
    <Routes>
    <Route path="/Cart1" element={<div>
