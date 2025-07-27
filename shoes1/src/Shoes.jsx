@@ -9,7 +9,8 @@ import Crocs from "./Navbar1/Crocs"
 function Shoes(){
     return(
         <>
-          <div id="Brands" className=" max-w-7xl m-auto mt-7 border-2 rounded-xl">
+         <div className="mt-10 mb-10 text-center text-4xl font-bold">SELECT YOUR SPORT, FIND YOUR SHOES, AND GET IN THE GAME!</div>
+          <div id="shop" className=" max-w-[97vw] m-auto mt-9 mb-7 border-2 rounded-xl">
             <h2 className="text-center text-4xl font-bold py-0.5">Brands</h2>
             <ul className="flex justify-between">
                 <li className="w-20"><Link to="/Nikeshoes"><img src={Nikep} alt="" /></Link></li>
@@ -18,7 +19,7 @@ function Shoes(){
                 <li className="w-20"><Link to="/Crocs"><img src={crocs} alt="" /></Link></li>
             </ul>
           </div>
-          <div className="w-100% h-4 bg-black mt-5"></div>
+          {/* <div className="w-100% h-4 bg-black mt-5"></div> */}
         </>
     )
 }

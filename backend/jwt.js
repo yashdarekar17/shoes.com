@@ -2,15 +2,15 @@ const jwt = require('jsonwebtoken');
 
 
 const jwtwebmiddleware = (req, res, next) => {
-    const authorization = req.headers.authorization;  // Corrected header retrieval
+    const authorization = req.headers.authorization;  
 
     if (!authorization) return res.status(401).json({ error: 'Token not found' });
 
-    const token = authorization.split(' ')[1];  // Extract the token
+    const token = authorization.split(' ')[1];  
     if (!token) return res.status(401).json({ error: 'Unauthorized' });
 
     try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET || '12345'); // Pass the token correctly
+        const decoded = jwt.verify(token, process.env.JWT_SECRET || '12345'); 
         req.user = decoded;
         next();
     } catch (err) {

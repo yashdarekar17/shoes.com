@@ -6,6 +6,8 @@ import Shoes4 from "./Shoes4"
 import Shoes5 from "./Shoes5"
 import Footer from "./Footer"
 import { Outlet } from "react-router-dom"
+import Ads from "./Ads"
+import Ad2 from "./Ad2"
 
 function Layout(){
     return(
@@ -22,6 +24,9 @@ function Layout(){
             <Shoes2/>
         </div>
         <div>
+            <Ads/>
+        </div>
+        <div>
         <Shoes3/>
         </div>
         <div>
@@ -29,6 +34,9 @@ function Layout(){
         </div>
         <div>
          <Shoes5/>
+        </div>
+        <div>
+            <Ad2/>
         </div>
         <div className="">
             <Footer/>

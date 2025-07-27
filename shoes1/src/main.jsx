@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import { Provider } from 'react-redux'
 import { render } from 'react-dom'
-import { store } from './Store/index.jsx'
+import { store } from './Store/index.jsx';
 import { ToastContainer,Bounce } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
 

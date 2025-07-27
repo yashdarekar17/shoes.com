@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import jorden from "./jorden.png";
-import P4 from "./crocs4.webp";
+import P4 from "./shoes3.png";
 import { useEffect, useState } from "react";
 
 function Header() {
@@ -41,21 +41,24 @@ function Header() {
     : "U";
 
   return (
-    <div className="h-3/5 relative mt-0">
+    <>
+    <div >
+        <div className="h-3/5 relative mt-0">
       <div className="w-full relative">
-        <img src={P4} alt="Banner" className="w-screen max-h-svh mt-0" />
+      <img src={P4} alt="" className="w-full "/>
+       
       </div>
-      <div className="mt-0">
-        <div className="absolute top-0 right-0 left-0 mt-0">
-          <div className="flex justify-between bg-white shadow-lg absolute top-0 right-0 left-0">
+      <div className="mt-0 ">
+        <div className="absolute top-0 right-0 left-0 mt-0 max-w-[97vw] m-auto mt-2">
+          <div className="flex justify-between bg-white text-white  rounded-xl  absolute top-0 right-0 left-0">
             {/* Brand */}
             <div className="flex justify-center items-center">
-              <img src={jorden} className="mt-2 ml-6 w-20" alt="Logo" />
-              <h2 className="ml-2 text-4xl">Shoes.com</h2>
+              <img src={jorden} className="mt-1 ml-6 w-20" alt="Logo" />
+              <h2 className="ml-2 mt-0 text-4xl text-black">Shoes.com</h2>
             </div>
 
             {/* Navigation */}
-            <ul className="flex items-center mt-6 gap-7 text-xl">
+            <ul className="flex justify-center item-center text-black mt-6 gap-10 text-xl">
               <li className="hover:text-gray-500">
                 <Link to="/">Home</Link>
               </li>
@@ -74,10 +77,10 @@ function Header() {
             </ul>
 
             {/* Login/Profile */}
-            <div className="flex items-center mr-6 mt-6 relative">
+            <div className="flex items-center mr-6 mt-2 relative">
               {!isLoggedIn ? (
                 <Link to="/login">
-                  <button className="bg-black hover:bg-slate-800 text-white font-bold py-2 px-4 rounded">
+                  <button className="bg-black hover:bg-gray-400 text-white font-bold py-2 px-4 rounded">
                     LOGIN
                   </button>
                 </Link>
@@ -105,8 +108,11 @@ function Header() {
           </div>
         </div>
       </div>
-      <div className="w-full h-4 bg-black"></div>
+      {/* <div className="w-full h-4 bg-black"></div> */}
     </div>
+    </div>
+    </>
+  
   );
 }
 

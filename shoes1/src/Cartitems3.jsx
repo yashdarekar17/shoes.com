@@ -1,40 +1,42 @@
 import { useEffect, useState } from "react";
-import { Product2 } from "./productcarts/Product2";
+import { Product3 } from "./productcarts/Product3";
 import { useDispatch, useSelector } from "react-redux";
-import { changeQuantity3 } from "./Store/Cart"; 
+import { changeQuantity } from "./Store/Cart"; 
 import jorden from "./jorden.png";
-
+import { Product2 } from "./productcarts/Product2";
+import { Link } from "react-router-dom";
 function Cartitems3(props) {
-    const { productId } = props.data;
-    const [detail, setDetail] = useState({});
-    const dispatch = useDispatch();
+  const { productId } = props.data;
+  const [detail, setDetail] = useState({});
+  const dispatch = useDispatch();
 
-    
-    const cartItem = useSelector(state =>
-        state.cart.items3.find(item => item.productId === productId)
-    );
-    const quantity = cartItem?.quantity || 1; 
+  // ✅ Updated selector to target 'page2' inside items
+  const cartItem = useSelector(state =>
+      state.cart.items?.page3?.find(item => item.productId === productId)
+  );
+  const quantity = cartItem?.quantity || 1;
 
-    useEffect(() => {
-        const findDetail = Product2.find(product => product.id === productId);
-        setDetail(findDetail || {}); 
-    }, [productId]);
+  useEffect(() => {
+      const findDetail = Product2.find(product => product.id === productId);
+      setDetail(findDetail || {});
+  }, [productId]);
 
-    const handlePlusQuantity = () => {
-        dispatch(changeQuantity3({
-            productId: productId,
-            quantity: quantity + 1 
-        }));
-    };
+  const handlePlusQuantity = () => {
+      dispatch(changeQuantity({
+          page: 'page3', // ✅ pass page name
+          productId,
+          quantity: quantity + 1
+      }));
+  };
 
-    const handleMinusQuantity = () => {
-        if (quantity > 1) {
-            dispatch(changeQuantity3({
-                productId: productId,
-                quantity: quantity - 1
-            }));
-        }
-    };
+  const handleMinusQuantity = () => {
+    dispatch(changeQuantity({
+      page: 'page3',
+      productId,
+      quantity: quantity - 1, // Can become 0
+    }));
+  };
+  
 
     const amount = Math.round(detail.price * quantity * 100);
       const currency = "INR";
@@ -114,13 +116,19 @@ function Cartitems3(props) {
         <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-5">
             <div className="w-80 border-2 rounded-xl m-5 max-w-screen pb-1">
                 <img src={detail.image} alt={detail.name} className="w-96 rounded-xl hover:scale-110"/>
-                <h2 className="ml-2">{detail.name}</h2>
-                <h2 className="ml-2">{detail.price * quantity}</h2>
-                <div className="flex">
-                    <button onClick={handleMinusQuantity} className="bg-black hover:bg-slate-800 text-white font-sm py-2 px-4 rounded mt-2 mx-2.5">-</button>
+                <h2 className="ml-2 text-lg font-semibold">{detail.name}</h2>
+                <h2 className="ml-2 mb-2">MRP:- {detail.price }</h2>
+                <div className="  w-full  ">
+                  <div className="mb-4 ">
+                     <button onClick={handleMinusQuantity} className="bg-black hover:bg-slate-800 text-white font-sm py-2 px-4 rounded mt-2 mx-2.5">-</button>
                     <span>{quantity}</span>
                     <button onClick={handlePlusQuantity} className="bg-black hover:bg-slate-800 text-white font-sm py-2 px-4 rounded mt-2 mx-2.5">+</button>
-                    <button onClick={PaymentHandler}className="bg-black hover:bg-slate-800 text-white font-sm py-2 px-4 rounded mt-2 mx-2.5">BUY NOW</button>
+                  </div>
+                    
+                    {/* <button onClick={PaymentHandler} className="bg-black hover:bg-slate-800 text-white font-sm py-2 px-4 rounded mt-2 mx-2.5">BUY NOW</button> */}
+                    <Link to={`/viewdetails/${productId}`}><button className=" w-full block bg-black hover:bg-slate-800 text-white font-sm py-2 px-4 rounded-xl " >view details</button></Link>
+                    
+
                 </div>
             </div>
         </div>

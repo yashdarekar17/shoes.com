@@ -1,3 +1,4 @@
+import react from 'react';
 import {
   BrowserRouter,
   createBrowserRouter,
@@ -31,6 +32,7 @@ import { useEffect } from "react";
 // import Detail1 from "./viewdetails/detail1";
 import { ToastContainer } from "react-toastify";
 import Header2 from "./Header2";
+import ViewDetails from './Viewdetails';
 
 
 
@@ -80,11 +82,11 @@ function App() {
      
    </Routes>
    <Routes>
-    <Route path="/shop" element={<div>
-      <Header2/>
-      <Shoes2/>
-      <Footer/>
-    </div> }></Route>
+   <Route path="/Shopping" element={<div>
+    <Header2/>
+    <Shopping/>
+    
+   </div>}></Route>
    </Routes>
    <Routes>
    <Route path="/Cart1" element={<div>
@@ -121,7 +123,7 @@ function App() {
     <Route path="/Crocs" element={<Crocs/>}>
     <Route index element={<Footer/>}/></Route>
     
-   
+   <Route path="/viewdetails/:id" element={<ViewDetails/>} />
    </Routes>
    
    
