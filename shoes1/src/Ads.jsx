@@ -1,7 +1,7 @@
 import Puma from "./Pumaimg.png"
 import crocs from "./Crocs5.png"
 import Nike from "./Nike.png"
-import Addidas from "./Ad.avif"
+import Addidas from "./AD.avif"
 import { Link } from "react-router-dom"
 function Ads(){
     return(
